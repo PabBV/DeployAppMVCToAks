@@ -3,6 +3,6 @@ kind: ConfigMap
 
 metadata:
   name: mvc-config
-
+  namespace: development
 data:
   ASPNETCORE_ENVIRONMENT: Development

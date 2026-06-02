@@ -3,6 +3,7 @@ kind: Ingress
 
 metadata:
   name: mvc-app
+  namespace: development
 
 spec:
   ingressClassName: nginx
