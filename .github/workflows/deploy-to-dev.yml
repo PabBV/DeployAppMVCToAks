@@ -39,10 +39,11 @@ jobs:
     - name: Login ACR
       run: |
         az acr login --name $ACR_NAME
-
+    
     - name: Build Image
       run: |
         docker build \
+          -f AppMvcDeployToAks/AppMvcDeployToAks/Dockerfile \
           -t $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }} \
           .
 
