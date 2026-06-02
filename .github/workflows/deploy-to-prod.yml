@@ -1,10 +1,10 @@
-name: DEV - Deploy MVC .NET 10 to AKS
+name: PROD - Deploy MVC .NET 10 to AKS
 
 
 on:
   push:
     branches:
-      - dev
+      - prod
 
 permissions:
   id-token: write
@@ -23,7 +23,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    environment: dev
+    environment: prod
 
     steps:
 
@@ -61,18 +61,18 @@ jobs:
 
     - name: Deploy manifests
       run: |
-        kubectl apply -f k8s/development
+        kubectl apply -f k8s/production
         
     - name: Update Deployment Image
       run: |
         kubectl set image deployment/mvc-app \
         mvc-app=$ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }} \
-        -n development
+        -n production
 
     - name: Verify Rollout
       run: |
         kubectl rollout status deployment/mvc-app \
-        -n development
+        -n production
 
     - name: Kubernetes Resources
       run: |
