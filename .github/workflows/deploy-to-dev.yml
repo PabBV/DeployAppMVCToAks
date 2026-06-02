@@ -45,7 +45,7 @@ jobs:
         docker build \
           -f AppMvcDeployToAks/AppMvcDeployToAks/Dockerfile \
           -t $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }} \
-          .
+          DeployAppMVCToAks/AppMvcDeployToAks
 
     - name: Push Image
       run: |
