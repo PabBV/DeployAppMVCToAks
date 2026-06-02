@@ -61,7 +61,7 @@ jobs:
 
     - name: Deploy manifests
       run: |
-        kubectl apply -f AppMvcDeployToAks/k8s/
+        kubectl apply -f k8s/
         
     - name: Update Deployment Image
       run: |
