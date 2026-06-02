@@ -73,3 +73,17 @@ jobs:
       run: |
         kubectl rollout status deployment/mvc-app \
         -n development
+
+    - name: Kubernetes Resources
+      run: |
+        echo "===== DEPLOYMENTS ====="
+        kubectl get deployments -A
+
+        echo "===== PODS ====="
+        kubectl get pods -A
+
+        echo "===== SERVICES ====="
+        kubectl get svc -A
+
+        echo "===== INGRESS ====="
+        kubectl get ingress -A
