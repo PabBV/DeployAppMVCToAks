@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: mvc-app
-
+  namespace: development
 spec:
   replicas: 1
 
