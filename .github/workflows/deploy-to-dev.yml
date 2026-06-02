@@ -59,6 +59,10 @@ jobs:
           --name $AKS_CLUSTER \
           --overwrite-existing
 
+    - name: Deploy manifests
+      run: |
+        kubectl apply -f AppMvcDeployToAks/k8s/
+        
     - name: Update Deployment Image
       run: |
         kubectl set image deployment/mvc-app \
